@@ -38,10 +38,11 @@ def busqueda_liga(partidos,liga):
 def busqueda_url_partido(partidos,equipo):
     for i in partidos.get("timeline"):
         if equipo.upper() == i.get("localTeam").get("name").upper():
-            url = i.get("sources").get("url")
+            for a in i.get("sources"):
+                url = a.get("url")
         if equipo.upper() == i.get("visitorTeam").get("name").upper():
-            url = i.get("sources").get("url")
-                 
+            for a in i.get("sources"):
+                url = a.get("url")  
     return print ("la url es:",url)
 
 def menu(opcion):
